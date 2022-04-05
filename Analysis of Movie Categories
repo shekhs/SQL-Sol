@@ -1,0 +1,36 @@
+/*
+Analysis of Movie Categories
+Description
+Write a query to find out how many times a particular movie category is rented. Arrange these categories in the decreasing order of the number of times they are rented.
+
+
+
+Sample Output
+
+
+
+Execution Time Limit
+25 seconds
+
+*/
+
+
+
+use upgrad;
+
+# Write your code below
+select ctg.NAME,count(RENTAL_ID) as Rental_count
+from RENTAL r 
+inner join INVENTORY i using(INVENTORY_ID) 
+inner join FILM f using(FILM_ID)
+inner join FILM_CATEGORY fc using(FILM_ID) 
+inner join CATEGORY ctg using(CATEGORY_ID)
+group by ctg.NAME
+order by Rental_count desc
+
+
+
+
+
+
+
