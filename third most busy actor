@@ -1,0 +1,28 @@
+/*
+Third most Busy Actor
+Description
+Write a query to find the full name of the actor who has acted in the third most number of movies.
+
+
+
+Sample Output
+
+Actor_name
+
+PENELOPE GUINESS
+
+Execution Time Limit
+15 seconds
+*/
+
+use upgrad;
+
+# Write your code below
+SELECT FullName from(
+select concat(a.FIRST_NAME," ",a.LAST_NAME) as FullName,count(fa.FILM_ID) as cnt
+from FILM_ACTOR fa inner join ACTOR a on a.ACTOR_ID = fa.ACTOR_ID
+group by fa.ACTOR_ID
+order by count(fa.FILM_ID) desc
+limit 3) answr
+order by cnt
+limit 1
