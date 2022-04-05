@@ -1,0 +1,27 @@
+/*
+Film-obsessed City
+Description
+Write a query to find the city which generated the maximum revenue for the organisation.
+
+
+
+Sample Output
+
+city
+
+Abu Dhabi
+
+Execution Time Limit
+15 seconds
+*/
+
+
+use upgrad;
+
+# Write your code below
+
+select ct.CITY from
+(select  a.CITY_ID,p.AMOUNT
+from PAYMENT p inner join CUSTOMER c using(CUSTOMER_ID) inner join ADDRESS a using(ADDRESS_ID)
+order by p.AMOUNT desc
+limit 1) ans inner join CITY ct using(CITY_ID)
