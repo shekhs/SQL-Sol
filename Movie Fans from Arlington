@@ -1,0 +1,29 @@
+/*
+Movie Fans from Arlington
+Description
+Write a query to find the full names of those customers who have rented at least one movie and belong to the city Arlington.
+
+
+
+Sample Output
+
+Customer_name
+
+MARY SMITH
+
+Execution Time Limit
+15 seconds
+*/
+
+
+use upgrad;
+
+# Write your code below
+
+select concat(cc.FIRST_NAME," ",cc.LAST_NAME) as name from
+(select distinct(c.CUSTOMER_ID)
+from RENTAL r
+inner join CUSTOMER c using (CUSTOMER_ID)
+inner join ADDRESS a using (ADDRESS_ID)
+inner join CITY ct using (CITY_ID)
+where ct.CITY = "Arlington") ans inner join CUSTOMER cc using (CUSTOMER_ID)
