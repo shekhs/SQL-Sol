@@ -1,0 +1,27 @@
+/*
+Country-wise Analysis of Movies
+Description
+Write a query to find the number of movies rented across each country. Display only those countries where at least one movie was rented. Arrange these countries in the alphabetical order.
+
+
+
+Sample Output
+
+
+
+Execution Time Limit
+15 seconds
+
+*/
+use upgrad;
+
+# Write your code below
+select cntry.COUNTRY, count(r.RENTAL_ID)
+from Rental r
+inner join Customer cust using (CUSTOMER_ID)
+inner join ADDRESS addr using (ADDRESS_ID)
+inner join CITY ct using (CITY_ID)
+inner join COUNTRY cntry using (COUNTRY_ID)
+group by cntry.COUNTRY
+HAVING  count(r.RENTAL_ID)>0
+order by cntry.COUNTRY
