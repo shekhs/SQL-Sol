@@ -1,0 +1,38 @@
+/*
+
+Science Fiction Enthusiasts
+Description
+Write a query to find the full names of customers who have rented sci-fi movies more than 2 times. Arrange these names in the alphabetical order.
+
+
+
+Sample Output
+
+Customer_name
+
+MARY SMITH
+
+Execution Time Limit
+25 seconds
+
+*/
+
+
+use upgrad;
+
+# Write your code below concat(c.FIRST_NAME," ",c.LAST_NAME) as name
+
+select concat(cc.FIRST_NAME," ",cc.LAST_NAME) as name from(
+select distinct(c.CUSTOMER_ID),count(c.CUSTOMER_ID)
+from RENTAL r 
+inner join CUSTOMER c using (CUSTOMER_ID)
+inner join INVENTORY i using(INVENTORY_ID) 
+inner join FILM f using(FILM_ID)
+inner join FILM_CATEGORY fc using(FILM_ID) 
+inner join CATEGORY ctg using(CATEGORY_ID)
+WHERE ctg.NAME="Sci-Fi"
+group by c.CUSTOMER_ID
+HAVING count(c.CUSTOMER_ID)>2) anss inner join CUSTOMER cc using (CUSTOMER_ID)
+ORDER BY name
+
+
