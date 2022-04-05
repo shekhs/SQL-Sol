@@ -1,0 +1,27 @@
+
+/*
+Busiest Actor
+Description
+Write a query to find the full name of the actor who has acted in the maximum number of movies.
+
+
+
+Sample Output
+
+Full_name
+
+PENELOPE GUINESS
+
+Execution Time Limit
+15 seconds
+*/
+
+use upgrad;
+
+# Write your code below
+
+select concat(a.FIRST_NAME," ",a.LAST_NAME)
+from FILM_ACTOR fa inner join ACTOR a on a.ACTOR_ID = fa.ACTOR_ID
+group by fa.ACTOR_ID
+order by count(fa.FILM_ID)  desc
+limit 1
