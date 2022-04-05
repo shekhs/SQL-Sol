@@ -1,0 +1,26 @@
+/*
+Highest Grossing Film
+Description
+Write a query to find the film which grossed the highest revenue for the video renting organisation.
+
+
+
+Sample Output
+
+title
+
+ACADEMY DINOSAUR
+
+Execution Time Limit
+15 seconds
+*/
+
+
+use upgrad;
+
+# Write your code below
+select f.TITLE from
+(select p.AMOUNT,i.FILM_ID
+from payment p inner join RENTAL r using(RENTAL_ID) inner join INVENTORY i using(INVENTORY_ID)
+order by p.AMOUNT desc
+limit 1) ans inner join FILM f using(FILM_ID) 
