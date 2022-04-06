@@ -1,0 +1,28 @@
+/*
+
+Kohli in ODIs
+Description
+The table given below contains the number of runs scored by Virat Kohli over the time period 2008-2019. Add another column which displays the 5-year moving average of the number of runs scored.
+
+
+
+Kohli_Batting
+
+﻿
+
+
+
+Sample Output
+
+﻿
+
+Execution Time Limit
+15 seconds
+*/
+
+use upgrad;
+
+# Write your code below
+select *,
+        avg(runs) over(order by year rows 4 preceding) as MovingAverage
+from Kohli_Batting
