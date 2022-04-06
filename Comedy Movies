@@ -1,0 +1,27 @@
+/*
+Comedy Movies
+Description
+Write a query to list all the films existing in the 'Comedy' category and arrange them in the alphabetical order.
+
+
+
+Sample Output
+
+title
+
+ACADEMY DINOSAUR
+
+Execution Time Limit
+15 seconds
+*/
+
+
+use upgrad;
+
+# Write your code below
+select f.title
+from film f
+inner join film_category fc using(film_id)
+inner join category c using (category_id)
+where c.name = "Comedy"
+order by f.title
