@@ -1,0 +1,32 @@
+/*
+Ad Campaign
+Description
+Suppose you are running an advertising campaign in Canada for which you need the film_ids and titles of all the films released in Canada. List the films in the alphabetical order of their titles.
+
+
+
+Sample Output
+
+
+
+Execution Time Limit
+15 seconds
+*/
+
+
+use upgrad;
+
+# Write your code below
+
+select f.film_id,
+         f.title
+from film f
+inner join inventory i using (film_id)
+inner join store s using (store_id)
+inner join address a using (address_id)
+inner join city c using (city_id)
+inner join country cn using (country_id)
+where cn.country = "Canada"
+group by f.film_id,f.title
+order by f.title
+
