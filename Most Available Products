@@ -1,0 +1,32 @@
+/*
+https://learn.upgrad.com/course/1973/segment/17581/120695/368768/1915126
+Most Available Products
+Description
+Given a table named products with the following columns.
+
+
+
+
+
+
+
+Write a query to retrieve the ranks of the products in decreasing order of their quantities in stock.
+
+
+
+Sample Output
+
+
+
+Execution Time Limit
+15 seconds
+*/
+
+
+
+use upgrad;
+
+# Write your code below
+select quantityInStock, 
+        rank() over(order by quantityInStock desc) as quantityRank
+from products
