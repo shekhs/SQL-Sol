@@ -1,0 +1,28 @@
+/*
+Lucky Customers
+Description
+List the first and last names of all customers whose first names start with the letters 'A', 'J' or 'T' or last names end with the substring 'on'. Arrange them alphabetically in the order of their first names.
+
+
+
+Sample Output
+
+
+
+Execution Time Limit
+15 seconds
+*/
+
+
+use upgrad;
+
+# Write your code below
+select first_name, last_name
+from customer
+where first_name like "A%" 
+      OR first_name like "J%"
+      OR first_name like "T%"
+      OR last_name like "%on"
+order by first_name
+
+
