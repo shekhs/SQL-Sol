@@ -1,0 +1,53 @@
+/*
+Tax Slabs - 2
+Description
+Below is the table for calculating income tax rates for the income tax slabs in India.
+
+
+
+Tax Rates
+
+﻿
+
+
+
+Here are the annual salary details (in lakhs per annum) of 10 employees working at Google Hyderabad office.
+
+
+
+Salaries
+
+
+
+
+
+Add another column to output the income tax to be paid by each employee. Make sure to round off the tax amounts to the nearest integer. Also, display the tax amount as 0 if the annual salary is less than or equal to 2.5 lakhs per annum.
+
+
+
+Note: Consider the name of the column having the salaries as 'salary'.
+
+
+
+Sample Output
+
+﻿
+
+Execution Time Limit
+15 seconds
+*/
+
+
+
+use upgrad;
+
+# Write your code below
+select name, 
+		salary,
+		CASE
+			WHEN salary>10 THEN round(112500+(0.3*(salary-10)*100000))
+            WHEN salary>5 THEN round(12500+(0.2*(salary-5)*100000))
+            WHEN salary>2.5 THEN round(0.05*(salary-2.5)*100000)
+            ELSE 0
+		END as Tax_Amount
+from salaries
