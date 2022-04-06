@@ -1,0 +1,26 @@
+/*
+Average Film Length by Category
+Description
+List the rounded average film lengths for each film category. Arrange the values in the decreasing order of the average film lengths.
+
+
+
+Sample Output
+
+
+
+Execution Time Limit
+10 seconds
+*/
+
+use upgrad;
+# Write your code below
+select round(avg(f.length)) as avg_length,
+        c.name
+from film f
+inner join film_category fc 
+using (film_id)
+inner join category c
+using (category_id)
+group by c.name
+order by avg_length desc
