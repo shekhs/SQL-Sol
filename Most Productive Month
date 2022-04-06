@@ -1,0 +1,24 @@
+/*
+Most Productive Month
+Description
+Write a query to find the month number (Eg: 4 corresponds to April) in which the most number of payments were made.
+
+
+
+Sample Output
+
+
+
+Execution Time Limit
+15 seconds
+*/
+
+
+use upgrad;
+
+# Write your code below
+select month(payment_date) as payment_month, count(*) as no_of_payments
+from payment
+group by month(payment_date)
+order by count(*) desc
+limit 1;
