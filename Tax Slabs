@@ -41,11 +41,11 @@ use upgrad;
 
 # Write your code below
 select name, 
-        Salary(in LPA),
+        salary as Salary_LPA,
         case
-            WHEN Salary(in LPA) <= 2.5 THEN "A"
-            WHEN Salary(in LPA) between 2.5 and 5 THEN "B"
-            WHEN Salary(in LPA) between 5 and 10 THEN "C"
+            WHEN salary <=2.5 THEN 'A'
+            WHEN salary between 2.5 and 5 THEN 'B'
+            WHEN salary between 5 and 10 THEN 'C'
             ELSE "D"
         END as Tax_Slab
 from Salaries
