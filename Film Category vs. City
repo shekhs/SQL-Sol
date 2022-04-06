@@ -1,0 +1,29 @@
+/*
+Film Category vs. City
+Description
+Write a query to find the number of occurrences of each film_category in each city. Arrange them in the decreasing order of their category count.
+
+
+
+Sample Output
+
+
+
+Execution Time Limit
+15 seconds
+*/
+
+use upgrad;
+
+# Write your code below
+select c.name,
+        ct.city,
+        count(ct.city) as category_count
+from film_category fc
+inner join category c using (category_id)
+inner join inventory i using (film_id)
+inner join store s using (store_id)
+inner join address a using (address_id)
+inner join city ct using (city_id)
+group by c.name, ct.city
+order by category_count desc
