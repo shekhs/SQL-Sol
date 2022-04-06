@@ -1,0 +1,51 @@
+/*
+Tax Slabs
+Description
+Below is the table for the income tax slabs in India.
+
+
+
+Tax Slabs
+
+﻿
+
+
+
+Here are the annual salary details (in lakhs per annum) of 10 employees working at Google Hyderabad office.
+
+
+
+Salaries
+
+
+
+
+
+Add another column to output the tax slabs along with the given data.
+
+Note: Consider the name of the column having the salaries as 'salary'.
+
+
+
+Sample Output
+
+
+
+Execution Time Limit
+15 seconds
+*/
+
+
+
+use upgrad;
+
+# Write your code below
+select name, 
+        Salary(in LPA),
+        case
+            WHEN Salary(in LPA) <= 2.5 THEN "A"
+            WHEN Salary(in LPA) between 2.5 and 5 THEN "B"
+            WHEN Salary(in LPA) between 5 and 10 THEN "C"
+            ELSE "D"
+        END as Tax_Slab
+from Salaries
