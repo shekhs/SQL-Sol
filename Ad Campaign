@@ -2,13 +2,10 @@
 Ad Campaign
 Description
 Suppose you are running an advertising campaign in Canada for which you need the film_ids and titles of all the films released in Canada. List the films in the alphabetical order of their titles.
-
-
-
 Sample Output : 
 sample
 
-
+###
 Execution Time Limit
 15 seconds
 */
